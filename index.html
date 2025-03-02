@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flip Invitation Card</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="card-container" onclick="flipCard()">
+        <div class="card">
+            <div class="card-front">
+                <img src="Cover.png" alt="Invitation Cover">
+            </div>
+            <div class="card-back">
+                <img src="Inside.png" alt="Invitation Inside">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function flipCard() {
+            document.querySelector('.card').classList.toggle('flipped');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: hsl(240, 44%, 88%);
+  margin: 0;
+}
+
+.card-container {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 600px; /* Default size */
+  height: 800px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
+}
+
+/* Ensure images take up full space */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-front img, .card-back img {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+/* 📱 Mobile responsiveness */
+@media (max-width: 768px) {
+  .card {
+    width: 90vw;  
+    height: auto;  
+    max-height: 90vh; /* Prevents the card from being too tall */
+    aspect-ratio: 3 / 4; /* Maintains the aspect ratio of 600x800 */
+  }
+  
+  .card-front img, .card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures image does not get cropped */
+  }
+}
